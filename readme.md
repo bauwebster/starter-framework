@@ -25,7 +25,7 @@ This application can be installed and set up manually.
 To manually set up the template, first download it with Git:
 
 ```bash
-https://github.com/bauwebster/routeOneAppNew.git
+https://github.com/bauwebster/starter-framework.git
 ```
 
 You will need Node.js, Gulp, Bower and Git installed on your computer.
