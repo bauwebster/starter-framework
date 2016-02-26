@@ -1,0 +1,185 @@
+html{
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  // Make everything look a little nicer in webkit
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    -webkit-font-smoothing: antialiased;
+  }
+  // -webkit-text-size-adjust: auto
+  // -moz-text-size-adjust: auto
+  // -ms-text-size-adjust: auto
+  // -o-text-size-adjust: auto
+  // text-size-adjust: auto
+}
+
+h1,h2,h3,h4,h5,h6 {
+  &.fancy {
+    font-family: $font-family-serif;
+  }
+  &.thin {
+    font-weight: 300;
+  }
+  &.caps {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+/* Custom Unordered Lists */
+ul {
+  &.cl {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 3.5rem;
+    text-indent: -1rem!important;
+    > li::before {
+      display: inline-block;
+      margin-right: 5px;
+      font-family: 'FontAwesome';
+      color: $brand-primary;
+    }
+    &.check {
+      > li::before {
+        content: "\f00c";
+      }
+    }
+    &.wrong {
+      > li::before {
+        content: "\f00d";
+      }
+    }
+    &.arrow {
+      > li::before {
+        content: "\f105";
+      }
+    }
+    &.green{
+      > li::before {
+        color: $brand-success;
+      }
+    }
+    &.red{
+      > li::before {
+        color: $brand-danger;
+      }
+    }
+    ul {
+        padding-left:2rem;
+        text-indent: 0rem;
+    }
+  }
+}
+
+/* eSSENTIAL Accessibility name wrap */
+.thename {
+  display: inline-block;
+  position: relative;
+  font-family: $font-family-sans-serif;
+  font-style: italic;
+  &::first-letter {
+    color: $brand-secondary;
+  }
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 93%;
+    height: 1px;
+    border-bottom:1px dotted $gray-light;
+    content: '';
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+
+/* Quotes */
+blockquote {
+  p {
+    font-family: $font-family-serif;
+    font-style: italic;
+  }
+}
+
+#main-content {
+  h1,h2 {
+    color: $brand-primary;
+  }
+  h3,h4,h5,h6 {
+    color:$text-color;
+  }
+  h3 {
+    font-weight: 300;
+  }
+  h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+p a {
+  display: inline-block;
+  position: relative;
+  text-shadow: none;
+  text-decoration: none;
+  border-radius:4px;
+  font-weight: 600;
+  //transition: background-color 300ms cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+  transition: color 300ms cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+  &:hover,
+  &:focus {
+    color:$brand-secondary;
+    outline:none;
+    text-decoration: none;
+    //background-color: mix($brand-secondary,white,10%);
+  }
+  &::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $brand-primary;
+    content: '';
+    opacity: 0;
+    transition: height 0.3s, opacity 0.3s, transform 0.3s, background-color 0.3s;
+    transform: translateY(-10px);
+  }
+  &:hover,
+  &:focus{
+    &::after {
+      background: lighten($brand-secondary,15%);
+      height: 2px;
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
+/* If pseudo classes :after and :before don't work default to this behaviour for a links */
+.mod_generatedcontent {
+  p a {
+    &:hover,
+    &:focus {
+      color:$brand-primary;
+      outline:none;
+      text-decoration: underline;
+      background-color: none;
+    }
+  }
+}
+
+/* Page Title */
+.page-title {
+  font-weight:300;
+  color: $brand-primary;
+  + p {
+    font-size: $font-size-base*1.25;
+  }
+}

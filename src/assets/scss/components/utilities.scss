@@ -1,0 +1,27 @@
+// Shadow Seperator
+.shadow-sep {
+  position: relative;
+  height: 30px;
+  width: 60%;
+  border: 1px solid #fff;
+  margin: 0px auto 30px auto;
+    &:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-color: rgba(155,155,0, 0.25);
+      border-radius:30%;
+      box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.3);
+      clip: rect(30px, auto, 70px, 0);
+    }
+}
+
+//Affix Issue Resolved
+.affix-bottom { position:absolute; }
+
+//Selection Highlight
+::-moz-selection { background: yellow; color:black;}
+::selection { background: yellow;  color:black;}

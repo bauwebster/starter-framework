@@ -1,0 +1,31 @@
+/***************************************
+    General Layout Styles
+****************************************/
+html {
+	height: 100%;
+}
+body {
+	min-height: 100%;
+	overflow: auto;
+	position: relative;
+}
+#page-wrapper {
+	/* padding-top:135px; */
+	width:100%;
+	overflow: hidden;
+}
+
+#main-header,
+#main-content,
+#main-footer {
+	transition: transform 300ms cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+  transition-timing-function: cubic-bezier(0.550, 0.085, 0.680, 0.530); /* easeInQuad */
+}
+
+.menu-open {
+	#main-header,
+	#main-content,
+	#main-footer {
+	   	transform: translate(225px, 0);
+ 	}
+}
